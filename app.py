@@ -324,7 +324,8 @@ api.add_resource(BovieDetailsWithTitle, "/movieDetailsWithTitle")
 api.add_resource(SimilarMoviesWithTitle, "/similarMoviesWithTitle")
 
 if __name__ == '__main__':
-   app.run(debug=True,port=5003)
+   #app.run(debug=True,port=5003)
+    app.run(port=5003)
 
 
 #findBestMovie(2)
