@@ -18,20 +18,20 @@ from LiveChat import findSimilarMovies
 
 
 app = Flask(__name__)
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
+#logger = logging.getLogger(__name__)
+#logger.setLevel(logging.INFO)
 
-formatter = logging.Formatter('%(asctime)s:%(name)s:%(message)s')
+#formatter = logging.Formatter('%(asctime)s:%(name)s:%(message)s')
 
-file_handler = logging.FileHandler('app.log')
-file_handler.setLevel(logging.INFO)
-file_handler.setFormatter(formatter)
+#file_handler = logging.FileHandler('app.log')
+#file_handler.setLevel(logging.INFO)
+#file_handler.setFormatter(formatter)
 
-stream_handler = logging.StreamHandler()
-stream_handler.setFormatter(formatter)
+#stream_handler = logging.StreamHandler()
+#stream_handler.setFormatter(formatter)
 
-logger.addHandler(file_handler)
-logger.addHandler(stream_handler)
+#logger.addHandler(file_handler)
+#logger.addHandler(stream_handler)
 
 api = swagger.docs(Api(app),apiVersion = "1.0",
                    api_spec_url="/docs",
@@ -76,10 +76,10 @@ class BestMovie(Resource):
                     ]
                 )
         def get(self):    
-            logger.info('RemoteAddress={0} - BestMovie: numOfMovies = {1}'.format(request.remote_addr,self.__numOfMovies))                 
+           # logger.info('RemoteAddress={0} - BestMovie: numOfMovies = {1}'.format(request.remote_addr,self.__numOfMovies))                 
             bestMovie=findBestMovie(self.__numOfMovies)
             response=json.JSONDecoder().decode(bestMovie.to_json(orient = "records"))
-            logger.info('BestMovie: List = {0}'.format(response))
+           # logger.info('BestMovie: List = {0}'.format(response))
             return response
     
 
@@ -123,10 +123,10 @@ class BestMovieWithYear(Resource):
                     ]
                 )
     def get(self): 
-        logger.info('RemoteAddress={0} - BestMovieWithYear:year={1},numOfMovies = {2}'.format(request.remote_addr,self.__year,self.__numOfMovies))                     
+        #logger.info('RemoteAddress={0} - BestMovieWithYear:year={1},numOfMovies = {2}'.format(request.remote_addr,self.__year,self.__numOfMovies))                     
         bestMovie=findBestMovieWithYear(self.__year,self.__numOfMovies)
         response=json.JSONDecoder().decode(bestMovie.to_json(orient = "records"))
-        logger.info('BestMovieWithYear: List = {0}'.format(response))
+       # logger.info('BestMovieWithYear: List = {0}'.format(response))
         return response
 
           
@@ -169,10 +169,10 @@ class BestMovieWithGenres(Resource):
                     ]
                 )
      def get(self):  
-            logger.info('RemoteAddress={0} - BestMovieWithGenres:genres={1},numOfMovies = {2}'.format(request.remote_addr,self.__genres,self.__numOfMovies))                     
+           # logger.info('RemoteAddress={0} - BestMovieWithGenres:genres={1},numOfMovies = {2}'.format(request.remote_addr,self.__genres,self.__numOfMovies))                     
             bestMovie=findBestMovieWithGenres(self.__genres,self.__numOfMovies)
             response=json.JSONDecoder().decode(bestMovie.to_json(orient = "records"))
-            logger.info('BestMovieWithGenres: List = {0}'.format(response))
+           # logger.info('BestMovieWithGenres: List = {0}'.format(response))
             return response
 
                
@@ -225,10 +225,10 @@ class BestMovieWithGenresAndYear(Resource):
                 )
 
      def get(self): 
-            logger.info('RemoteAddress={0} - BestMovieWithGenresAndYear:genres={1},year={2},numOfMovies = {3}'.format(request.remote_addr,self.__genres,self.__year,self.__numOfMovies))              
+           # logger.info('RemoteAddress={0} - BestMovieWithGenresAndYear:genres={1},year={2},numOfMovies = {3}'.format(request.remote_addr,self.__genres,self.__year,self.__numOfMovies))              
             bestMovie=findBestMovieWithGenresWithYear(self.__genres,self.__year,self.__numOfMovies)
             response=json.JSONDecoder().decode(bestMovie.to_json(orient = "records"))
-            logger.info('BestMovieWithGenresAndYear: List = {0}'.format(response))
+           # logger.info('BestMovieWithGenresAndYear: List = {0}'.format(response))
             return response
 
                  
@@ -263,10 +263,10 @@ class BovieDetailsWithTitle(Resource):
                     ]
                 )
     def get(self):   
-            logger.info('RemoteAddress={0} - BovieDetailsWithTitle:title={1}'.format(request.remote_addr,self.__title)) 
+          #  logger.info('RemoteAddress={0} - BovieDetailsWithTitle:title={1}'.format(request.remote_addr,self.__title)) 
             bestMovie=movieDetailsWithTitle(self.__title)
             response=json.JSONDecoder().decode(bestMovie.to_json(orient = "records"))
-            logger.info('BovieDetailsWithTitle: List = {0}'.format(response))
+           # logger.info('BovieDetailsWithTitle: List = {0}'.format(response))
             return response
 
                  
@@ -310,10 +310,10 @@ class SimilarMoviesWithTitle(Resource):
                     ]
                 )
     def get(self):   
-            logger.info('RemoteAddress={0} - SimilarMoviesWithTitle:title={1},numOfMovies = {2}'.format(request.remote_addr,self.__title,self.__numOfMovies)) 
+           # logger.info('RemoteAddress={0} - SimilarMoviesWithTitle:title={1},numOfMovies = {2}'.format(request.remote_addr,self.__title,self.__numOfMovies)) 
             bestMovie=findSimilarMovies(self.__title,self.__numOfMovies)
             response=json.JSONDecoder().decode(bestMovie.to_json(orient = "records"))
-            logger.info('SimilarMoviesWithTitle: List = {0}'.format(response))
+           # logger.info('SimilarMoviesWithTitle: List = {0}'.format(response))
             return response
         
 api.add_resource(BestMovie, "/bestMovie")
