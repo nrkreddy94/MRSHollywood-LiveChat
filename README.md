@@ -8,7 +8,7 @@ Chatbot API
 ---------------
  ![SwaggerUI](/LiveChatApi.PNG)   
 
- Flask web application with SwaggerUI implemented and deployed in [heroko](https://dashboard.heroku.com/) cloud server. These API services will be integrated with chatbot in the Google [Dialogflow](https://dialogflow.cloud.google.com/) fulfillment during Agent Jesicca training phase.
+ Flask web application with SwaggerUI implemented and deployed in [heroku](https://dashboard.heroku.com/) cloud server. These API services will be integrated with chatbot in the Google [Dialogflow](https://dialogflow.cloud.google.com/) fulfillment during Agent Jesicca training phase.
 
 Google Dialogflow
 ---------------
@@ -51,3 +51,12 @@ Just Say "Okay Google, Talk to Dear Jessica "
 Activation  |  Assistance
 ----------- | ------------
 ![Ass_Activation](/Ass_Activation.jpeg) | ![Asst_Conversation](/Asst_Conversation.jpeg)
+
+
+### Useful Links
+
+[MRSHollywood_Development](https://github.com/nrkreddy94/MRSHollywood_Development)
+
+[MRSHollywood_Deployment](https://github.com/nrkreddy94/MRSHollywood_Deployment)
+
+[MRSHollywood_Android](https://github.com/nrkreddy94/MRSHollywood_Android)
